@@ -11,6 +11,9 @@ let transporter = nodemailer.createTransport({
     user: process.env.SMTP_MAIL, // generated ethereal user
     pass: process.env.SMTP_PASSWORD, // generated ethereal password
   },
+  tls: {
+    ciphers: "SSLv3",
+  },
 });
 
 const sendEmail = expressAsyncHandler(async (req) => {
